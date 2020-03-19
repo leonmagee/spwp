@@ -1,0 +1,33 @@
+//$primary: #51a98e; // green
+$primary: #da5355; // red
+$second: #03cea4; // blue green
+//$red: #c1292e;
+$white: #fafafa;
+$grad_color: $primary;
+
+$grad: linear-gradient(
+    135deg,
+    $grad_color 0%,
+    darken($grad_color, 0.5%) 33%,
+    lighten($grad_color, 5%) 85%
+);
+
+// Body
+//$body-bg: #f8fafc;
+
+// Typography
+// $font-family-sans-serif: "Nunito", sans-serif;
+// $font-size-base: 0.9rem;
+// $line-height-base: 1.6;
+
+// // Colors
+// $blue: #3490dc;
+// $indigo: #6574cd;
+// $purple: #9561e2;
+// $pink: #f66d9b;
+// $red: #e3342f;
+// $orange: #f6993f;
+// $yellow: #ffed4a;
+// $green: #38c172;
+// $teal: #4dc0b5;
+// $cyan: #6cb2eb;

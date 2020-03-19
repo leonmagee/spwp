@@ -1,0 +1,54 @@
+div.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    h1 {
+        font-size: 8em;
+        margin: 0 0 0.5em 0;
+    }
+    h4 {
+        font-size: 4em;
+        margin: 0;
+    }
+
+    .tabs {
+        color: #222;
+        background: $white;
+        border-radius: 15px;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        width: 75%;
+        height: 60%;
+        .tabs__nav {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 15px;
+            a {
+                padding: 5px 15px;
+                flex: 0 1 13%;
+                margin: 0 10px;
+                font-size: 2.3em;
+                background-color: $second;
+                color: #fff;
+                text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                text-transform: uppercase;
+                &:hover {
+                    background-color: darken($second, 5%);
+                    cursor: pointer;
+                }
+            }
+        }
+        .tabs-inner {
+            width: 100%;
+            height: 100%;
+            .tabs__item {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
