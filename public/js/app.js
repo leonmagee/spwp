@@ -205,8 +205,25 @@ var Homepage = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Homepage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this, props));
+    var features = [{
+      'text': 'Easy Setup, easy to manage',
+      'af': 0
+    }, {
+      'text': 'Customizable Layout',
+      'af': 0
+    }, {
+      'text': 'Fully Responsive',
+      'af': 0
+    }, {
+      'text': 'Works with all affiliate networks',
+      'af': 0
+    }, {
+      'text': 'Embed Amazon content',
+      'af': 1
+    }];
     _this.state = {
-      active_tab: 1
+      active_tab: 1,
+      features: features
     };
     return _this;
   } // componentDidMount() {
@@ -226,9 +243,22 @@ var Homepage = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var features = this.state.features.map(function (feature) {
+        var asterisk = '';
+
+        if (feature.af) {
+          asterisk = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "af"
+          }, "*");
+        }
+
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, feature.text, asterisk);
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "hero"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, features)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs__nav"

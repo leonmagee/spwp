@@ -8,8 +8,18 @@ import Tab from './Tab';
 export default class Homepage extends Component {
     constructor(props) {
         super(props)
+
+        const features = [
+          {'text': 'Easy Setup, easy to manage', 'af': 0},
+          {'text': 'Customizable Layout', 'af': 0},
+          {'text': 'Fully Responsive', 'af': 0},
+          {'text': 'Works with all affiliate networks', 'af': 0},
+          {'text': 'Embed Amazon content', 'af': 1},
+        ];
+
         this.state = {
-            active_tab: 1
+            active_tab: 1,
+            features
         };
     }
 
@@ -21,25 +31,26 @@ export default class Homepage extends Component {
     }
 
     render() {
+      const features = this.state.features.map(feature => {
+        let asterisk = '';
+        if(feature.af) {
+         asterisk = <span className="af">*</span>;
+        }
+      return <li>{feature.text}{asterisk}</li>
+      });
         return (
             <div className="homepage">
+                <div className="hero">
+                    <h1>Your New Blog Shop Page</h1>
+                    <ul>
+                      {features}
+                    </ul>
+                </div>
                 <div className="tabs">
                     <div className="tabs__nav">
-                        <a
-                            onClick={() => this.onClickTab(1)}
-                        >
-                            Info
-                        </a>
-                        <a
-                            onClick={() => this.onClickTab(2)}
-                        >
-                            Features
-                        </a>
-                        <a
-                            onClick={() => this.onClickTab(3)}
-                        >
-                            Purchase
-                        </a>
+                        <a onClick={() => this.onClickTab(1)}>Info</a>
+                        <a onClick={() => this.onClickTab(2)}>Features</a>
+                        <a onClick={() => this.onClickTab(3)}>Purchase</a>
                     </div>
                     <div className="tabs-inner">
                         <Tab index={1} active={this.state.active_tab}>
