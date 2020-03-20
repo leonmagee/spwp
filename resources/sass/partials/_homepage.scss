@@ -34,10 +34,18 @@ div.homepage {
             font-weight: 600;
             li {
                 margin: 10px 0;
-                span {
+                color: #333;
+                display: flex;
+                align-items: center;
+                i.fa-check {
+                    color: $second;
+                    margin-right: 10px;
+                }
+                i.fa-asterisk {
                     color: darken($primary, 3%);
-                    font-weight: 700;
-                    margin-left: 3px;
+                    //font-weight: 700;
+                    font-size: 0.8em;
+                    margin-left: 7px;
                 }
             }
         }

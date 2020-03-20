@@ -27,6 +27,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.1",
         "nprogress": "^0.2.0",
         "prop-types": "^15.7.2",
         "react-stripe-checkout": "^2.6.3"

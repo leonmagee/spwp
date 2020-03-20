@@ -247,12 +247,14 @@ var Homepage = /*#__PURE__*/function (_Component) {
         var asterisk = '';
 
         if (feature.af) {
-          asterisk = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-            className: "af"
-          }, "*");
+          asterisk = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-asterisk"
+          });
         }
 
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, feature.text, asterisk);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-check"
+        }), feature.text, asterisk);
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "homepage"

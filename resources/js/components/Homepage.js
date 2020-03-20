@@ -34,9 +34,15 @@ export default class Homepage extends Component {
       const features = this.state.features.map(feature => {
         let asterisk = '';
         if(feature.af) {
-         asterisk = <span className="af">*</span>;
+         asterisk = <i className="fas fa-asterisk"></i>;
         }
-      return <li>{feature.text}{asterisk}</li>
+      return (
+          <li>
+              <i className="fas fa-check"></i>
+              {feature.text}
+              {asterisk}
+          </li>
+      );
       });
         return (
             <div className="homepage">
