@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Button() {
+function Button(props) {
+  const icon = props.icon ? <i className={`fas fa-${props.icon}`}></i> : <></>;
   return (
-    <button className="button">Checkout</button>
+    <button className={`btn ${props.style}`}>{icon}{props.name}</button>
   )
 }
 

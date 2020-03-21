@@ -48,9 +48,19 @@ export default class Homepage extends Component {
             <div className="homepage">
                 <div className="hero">
                     <h1>Your New Blog Shop Page</h1>
-                    <ul>
-                      {features}
-                    </ul>
+                    <ul>{features}</ul>
+                    <div className="button-group">
+                        <Button
+                            icon="cloud-download-alt"
+                            style="primary large"
+                            name="Download Now"
+                        />
+                        <Button
+                            icon="unlock-alt"
+                            style="second large"
+                            name="Advanced Features"
+                        />
+                    </div>
                 </div>
                 <div className="tabs">
                     <div className="tabs__nav">
@@ -71,7 +81,7 @@ export default class Homepage extends Component {
                             <h1>Unlock Advanced Features</h1>
                             <h4>Purchase now with Stripe checkout</h4>
                             <Checkout>
-                                <Button />
+                                <Button name="Checkout" />
                             </Checkout>
                         </Tab>
                         <Tab index={3} active={this.state.active_tab}>

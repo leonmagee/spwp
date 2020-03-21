@@ -80,10 +80,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function Button() {
+function Button(props) {
+  var icon = props.icon ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-".concat(props.icon)
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "button"
-  }, "Checkout");
+    className: "btn ".concat(props.style)
+  }, icon, props.name);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Button);
@@ -260,7 +263,17 @@ var Homepage = /*#__PURE__*/function (_Component) {
         className: "homepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hero"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, features)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, features), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        icon: "cloud-download-alt",
+        style: "primary large",
+        name: "Download Now"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        icon: "unlock-alt",
+        style: "second large",
+        name: "Advanced Features"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs__nav"
@@ -284,7 +297,9 @@ var Homepage = /*#__PURE__*/function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "A free WordPress plugin to create a simple and", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "powerful affiliate shop page on your website")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
         index: 2,
         active: this.state.active_tab
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Unlock Advanced Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Purchase now with Stripe checkout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Unlock Advanced Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Purchase now with Stripe checkout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        name: "Checkout"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
         index: 3,
         active: this.state.active_tab
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tab 3")))));
