@@ -20,6 +20,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Homepage */ "./resources/js/components/Homepage.js");
 
+__webpack_require__(/*! ./components/TabsPage */ "./resources/js/components/TabsPage.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -83,8 +85,15 @@ __webpack_require__.r(__webpack_exports__);
 function Button(props) {
   var icon = props.icon ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-".concat(props.icon)
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null); //const href = props.href ? "href=" + props.href : <></>;
+
+  var target = props.target ? props.target : "_self"; //const callback = () => {console.log('callback working')};
+
+  var callback = props.callback ? props.callback : function () {};
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: props.href,
+    onClick: callback,
+    target: target,
     className: "btn ".concat(props.style)
   }, icon, props.name);
 }
@@ -209,7 +218,7 @@ var Homepage = /*#__PURE__*/function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this, props));
     var features = [{
-      'text': 'Easy Setup, easy to manage',
+      'text': 'Easy Setup, Easy to Manage',
       'af': 0
     }, {
       'text': 'Customizable Layout',
@@ -218,10 +227,10 @@ var Homepage = /*#__PURE__*/function (_Component) {
       'text': 'Fully Responsive',
       'af': 0
     }, {
-      'text': 'Works with all affiliate networks',
+      'text': 'Works with All Affiliate Networks',
       'af': 0
     }, {
-      'text': 'Embed Amazon content',
+      'text': 'Embed Amazon Content',
       'af': 1
     }];
     _this.state = {
@@ -246,16 +255,18 @@ var Homepage = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var features = this.state.features.map(function (feature) {
+      var features = this.state.features.map(function (feature, index) {
         var asterisk = '';
 
         if (feature.af) {
           asterisk = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            className: "fas fa-asterisk"
+            className: "fas fa-lock"
           });
         }
 
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: index
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-check"
         }), feature.text, asterisk);
       });
@@ -263,46 +274,44 @@ var Homepage = /*#__PURE__*/function (_Component) {
         className: "homepage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hero"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs-inner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        index: 1,
+        active: this.state.active_tab
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, features), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         icon: "cloud-download-alt",
         style: "primary large",
-        name: "Download Now"
+        name: "Download Now",
+        href: "https://wordpress.org/plugins/shop-page-wp/",
+        target: "_blank"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         icon: "unlock-alt",
         style: "second large",
-        name: "Advanced Features"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tabs"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tabs__nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        onClick: function onClick() {
-          return _this2.onClickTab(1);
-        }
-      }, "Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        onClick: function onClick() {
+        name: "Advanced Features",
+        callback: function callback() {
           return _this2.onClickTab(2);
         }
-      }, "Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        onClick: function onClick() {
-          return _this2.onClickTab(3);
-        }
-      }, "Purchase")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tabs-inner"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        index: 1,
-        active: this.state.active_tab
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "A free WordPress plugin to create a simple and", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "powerful affiliate shop page on your website")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
         index: 2,
         active: this.state.active_tab
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Unlock Advanced Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Purchase now with Stripe checkout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Unlock Advanced Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text max-width"
+      }, "Purchase now with Stripe Checkout. By purchasing you will be emailed a license key which can be used to activate plugin advanced features."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        icon: "shopping-cart",
+        style: "third large",
         name: "Checkout"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        index: 3,
-        active: this.state.active_tab
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tab 3")))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        style: "link second",
+        name: "Cancel",
+        callback: function callback() {
+          return _this2.onClickTab(1);
+        }
+      }))))));
     }
   }]);
 
@@ -376,6 +385,140 @@ var Tab = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Tab);
+
+/***/ }),
+
+/***/ "./resources/js/components/TabsPage.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/TabsPage.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TabsPage; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Checkout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Checkout */ "./resources/js/components/Checkout.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Button */ "./resources/js/components/Button.js");
+/* harmony import */ var _Tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Tab */ "./resources/js/components/Tab.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+ //import axios from "axios";
+
+var TabsPage = /*#__PURE__*/function (_Component) {
+  _inherits(TabsPage, _Component);
+
+  function TabsPage(props) {
+    var _this;
+
+    _classCallCheck(this, TabsPage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TabsPage).call(this, props));
+    var features = [{
+      'text': 'Easy Setup, easy to manage',
+      'af': 0
+    }, {
+      'text': 'Customizable Layout',
+      'af': 0
+    }, {
+      'text': 'Fully Responsive',
+      'af': 0
+    }, {
+      'text': 'Works with all affiliate networks',
+      'af': 0
+    }, {
+      'text': 'Embed Amazon content',
+      'af': 1
+    }];
+    _this.state = {
+      active_tab: 1,
+      features: features
+    };
+    return _this;
+  } // componentDidMount() {
+  //     console.log('mounted')
+  // }
+
+
+  _createClass(TabsPage, [{
+    key: "onClickTab",
+    value: function onClickTab(active_tab) {
+      this.setState({
+        active_tab: active_tab
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "homepage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs__nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: function onClick() {
+          return _this2.onClickTab(1);
+        }
+      }, "Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: function onClick() {
+          return _this2.onClickTab(2);
+        }
+      }, "Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        onClick: function onClick() {
+          return _this2.onClickTab(3);
+        }
+      }, "Purchase")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs-inner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        index: 1,
+        active: this.state.active_tab
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your New Blog Shop Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "A free WordPress plugin to create a simple and", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "powerful affiliate shop page on your website")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        index: 2,
+        active: this.state.active_tab
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Unlock Advanced Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Purchase now with Stripe checkout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        name: "Checkout"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        index: 3,
+        active: this.state.active_tab
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Tab 3")))));
+    }
+  }]);
+
+  return TabsPage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById("tabs_page")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TabsPage, null), document.getElementById("tabs_page"));
+}
 
 /***/ }),
 

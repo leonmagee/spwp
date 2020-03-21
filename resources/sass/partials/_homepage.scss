@@ -22,13 +22,16 @@ div.homepage {
         padding: 15px;
         margin: 30px 0;
         width: 75%;
+        height: 75%;
         h1 {
             margin: 0;
-            font-size: 6em;
+            font-size: 5em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 11px;
         }
         ul {
             list-style-type: none;
-            font-size: 3em;
+            font-size: 3.7em;
             display: inline-block;
             text-align: left;
             padding: 0;
@@ -41,11 +44,14 @@ div.homepage {
                 display: flex;
                 align-items: center;
                 i.fa-check {
-                    color: $second;
-                    margin-right: 10px;
+                    color: $primary;
+                    color: darken($third, 2%);
+                    margin-right: 13px;
                 }
-                i.fa-asterisk {
-                    color: darken($primary, 3%);
+                i.fa-asterisk,
+                i.fa-lock {
+                    //color: darken($second, 3%);
+                    color: $second;
                     font-size: 0.7em;
                     margin-left: 10px;
                 }
@@ -54,34 +60,27 @@ div.homepage {
     }
 
     .tabs {
-        color: #222;
-        background: $white;
-        border-radius: 15px;
-        box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-        width: 75%;
-        height: 60%;
-        .tabs__nav {
-            display: flex;
-            justify-content: center;
-            padding-bottom: 15px;
-            a {
-                padding: 5px 15px;
-                flex: 0 1 13%;
-                margin: 0 10px;
-                font-size: 2.3em;
-                background-color: $second;
-                color: #fff;
-                text-shadow: 1px 1px rgba(0, 0, 0, 0.05);
-                border-radius: 5px;
-                text-transform: uppercase;
-                font-weight: 700;
-                &:hover {
-                    background-color: darken($second, 5%);
-                    cursor: pointer;
-                }
-            }
-        }
+        // .tabs__nav {
+        //     display: flex;
+        //     justify-content: center;
+        //     padding-bottom: 15px;
+        //     a {
+        //         padding: 5px 15px;
+        //         flex: 0 1 13%;
+        //         margin: 0 10px;
+        //         font-size: 2.3em;
+        //         background-color: $second;
+        //         color: #fff;
+        //         text-shadow: 1px 1px rgba(0, 0, 0, 0.05);
+        //         border-radius: 5px;
+        //         text-transform: uppercase;
+        //         font-weight: 700;
+        //         &:hover {
+        //             background-color: darken($second, 5%);
+        //             cursor: pointer;
+        //         }
+        //     }
+        // }
         .tabs-inner {
             width: 100%;
             height: 100%;

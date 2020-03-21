@@ -11,3 +11,4 @@ require('./bootstrap');
  */
 
 require('./components/Homepage');
+require('./components/TabsPage');
